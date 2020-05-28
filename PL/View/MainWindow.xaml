@@ -1,0 +1,78 @@
+﻿<Window xmlns:xcad="http://schemas.xceed.com/wpf/xaml/avalondock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PL"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Name="MainWindow1" x:Class="PL.MainWindow"
+        mc:Ignorable="d"
+        Title="The missile Alert"  WindowState="Maximized" Height="1166" Width="1582">
+
+    <TabControl Background="#e7e6df" FontSize="15"   FontFamily="Yu Gothic" Margin="0,34,0,0"  >
+        <TabItem Header="Add Report  Or Fall" FontWeight="Bold" Foreground="#003053"  >
+
+            <StackPanel Orientation="Horizontal">
+                <Grid Width="417.22">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="169*"/>
+                        <ColumnDefinition Width="17*"/>
+                        <ColumnDefinition Width="160*"/>
+                        <ColumnDefinition Width="72*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Vertical" Margin="0,10,0,0" Grid.ColumnSpan="4">
+                        <Label  Content="Add reoprt" Margin="10.61,20,12,0" FontSize="18" FontWeight="Bold" Background="#FFACC7F2" Foreground="#FFE7E6DF" />
+                        <local:NewReportView x:Name="NewReportElement" Margin="10,5,-122.5,10" Foreground="#FFACC7F2" Height="269.377" Loaded="NewReportElement_Loaded"/>
+                        <Label  Content="Add Fall" Margin="12,10,12,0" FontSize="18" FontWeight="Bold" Background="#FFACC7F2" Foreground="#e7e6df" Width="393.22" />
+                        <local:NewFallView Margin="10.658,5,10.658,10" Width="395.904" Height="230.975"/>
+                        <Label  Content="Falls Image" Margin="14,10,12,0" FontSize="18" FontWeight="Bold" Background="#FFACC7F2" Foreground="#FFE7E6DF" />
+                        <local:FallsImages x:Name="fallImageElement" Margin="104,10,101.5,0" Height="285"/>
+
+
+                    </StackPanel>
+                </Grid>
+                <Grid Width="1122" Margin="0,0,0,10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <local:BingMapsView x:Name="MainMap" Foreground="#FFA9CFC8" Margin="0,10,52,10" HorizontalAlignment="Right" Width="1061" Loaded="MainMap_Loaded"/>
+
+                    <Ellipse  HorizontalAlignment="Left" Height="50" Margin="10,27,0,0" VerticalAlignment="Top" Width="58" PreviewMouseUp="Ellipse_PreviewMouseUp">
+                        <Ellipse.Fill>
+                            <ImageBrush ImageSource="images.png" />
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Grid>
+                <Image Width="1184" RenderTransformOrigin="0.5,0.5" Margin="0,-1.758,0,1.758" d:IsHidden="True">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="1.736"/>
+                            <RotateTransform/>
+                            <TranslateTransform Y="-3.97"/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+
+            </StackPanel>
+
+        </TabItem>
+        <TabItem Header="Statistics" FontWeight="Bold" Foreground="#003053" GotFocus="TabItem_GotFocus_1" >
+            <StackPanel Orientation="Vertical" Margin="0,0,0,-108"  >
+                <StackPanel Orientation="Horizontal">
+                    <local:Statistics x:Name="StatisticsElement" Height="158" HorizontalAlignment="Left" Margin="50,30,50,20" Width="261.307" Foreground="{x:Null}" />
+                    <local:ChartView  Height="420" x:Name="PieChartElement" Width="1148.5" HorizontalAlignment="Right" Margin="50,30" />
+
+                </StackPanel>
+                <local:GraphView x:Name="GraphElement" Height="404" />
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Falls information" FontWeight="Bold" Foreground="#003053" GotFocus="TabItem_GotFocus">
+            <StackPanel Orientation="Horizontal">
+
+                <StackPanel Orientation="Vertical" />
+                <local:BingMapsView x:Name="secondMapElement" Margin="0,0,0,-0.333" Width="1075" d:IsHidden="True" />
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+
+</Window>
